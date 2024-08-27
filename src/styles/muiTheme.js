@@ -6,6 +6,9 @@ export const customMuiTheme = createTheme({
             textTransform: "none",
             fontStyle: 'italic',
         },
+        subtitle1: {
+            fontSize: '1.3rem'
+        }
     },
     palette: {
         relaxed: {
