@@ -35,7 +35,7 @@ function ListOfPhrases() {
     await fetchPhrases();
   }, []);
 
-  return (
+  return renderedPhrases ?   
     <div style={customStyles.allPhrasesFrame}>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginRight: '1rem' }}>
         <button style={{ color: '#d32f2f', borderColor: '#d32f2f', backgroundColor: '#ffcdd2' }} onClick={() => addFixedPhrase()}>
@@ -51,8 +51,7 @@ function ListOfPhrases() {
             No mostrar
           </button>
         </div>
-        {!renderedPhrases && <div>Cargando frases ...</div>}
-        {renderedPhrases && colorForPhrases &&
+        {colorForPhrases &&
           renderedPhrases.map(phrase => (
             <div key={phrase} style={{ ...customStyles.phraseRow, color: colorForPhrases }}>
               <div style={{ ...customStyles.phrase, ...customStyles.phraseTall, color: colorForPhrases }}>
@@ -66,12 +65,13 @@ function ListOfPhrases() {
             </div>
           ))
         }
-        {renderedPhrases && !colorForPhrases &&
+        {!colorForPhrases &&
           <div>Elegir un color para ver las frases ...</div>
         }
       </div>
     </div>
-  );
+  : <div>Cargando frases ...</div> 
+  ;
 }
 
 export function Phrases() {

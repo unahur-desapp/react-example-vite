@@ -4,13 +4,9 @@ export function FilmsAndPhrases() {
     {/* Vamos hacia un componente genérico que muestre la data de una peli o serie.
         Por ahora probamos solamente con chapulín.
         Pasamos título y URL de la imagen, después vemos la parte de las frases */}
-    <FilmBlock 
+    <ChapulinPhrases 
       title='Chapulín colorado 3' 
       imageURL='https://res.cloudinary.com/remezcla/images/f_auto,q_auto/v1639757764/production/El_Chapulin_Colorado_Film/El_Chapulin_Colorado_Film.jpeg?_i=AA' 
-      phrases={[
-        "¡No contaban con mi astucia!", "Se aprovechan de mi nobleza",
-        "Síganme los buenos", "Que no panda el cúnico", "Todos mis movimientos están fríamente calculados"
-      ]}
     />
     <TerminatorPhrases />
     <StarWarsPhrases />
@@ -26,8 +22,8 @@ function Title(props) {
   );
 }
 
-function FilmBlock(props) {
-  const { title, imageURL, phrases } = props;  // ejemplo de JS destructuring
+function ChapulinPhrases(props) {
+  const { title, imageURL } = props;  // ejemplo de JS destructuring
   return <div className="phraseAuthorBlock">
     <div className="phraseAuthorInfoFrame">
       <h2>{title}</h2>
@@ -36,7 +32,11 @@ function FilmBlock(props) {
       </div>
     </div>
     <div className="phraseGroupFrame">
-      { phrases.map(phrase => <p key={phrase} className="phrase">{phrase}</p>) }
+      <p className="phrase">¡No contaban con mi astucia!</p>
+      <p className="phrase">Se aprovechan de mi nobleza</p>
+      <p className="phrase">Síganme los buenos</p>
+      <p className="phrase">Que no panda el cúnico</p>
+      <p className="phrase">Todos mis movimientos están fríamente calculados</p>
     </div>
   </div>
 }

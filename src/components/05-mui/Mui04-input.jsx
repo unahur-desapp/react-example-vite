@@ -55,7 +55,7 @@ function AddPhrase({ fetchPhrases }) {
       error={touched && !!errorMessage}
       helperText={touched ? errorMessage : null}
     />
-    <Button variant='contained' color='success' sx={{ ml: 4 }} onClick={() => {
+    <Button variant='contained' color='success' sx={{ ml: 4 }} disabled={!touched || !!errorMessage} onClick={() => {
       doAddPhrase(newPhraseText);
     }}>
       <Box sx={{ px: 2 }}>Agregar</Box>

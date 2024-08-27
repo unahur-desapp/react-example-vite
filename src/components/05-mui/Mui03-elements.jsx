@@ -83,13 +83,14 @@ function ListOfPhrases() {
         {!renderedPhrases && <div>Cargando frases ...</div>}
         {renderedPhrases && colorForPhrases &&
           renderedPhrases.map(phrase => (
-            <Stack flexDirection='row' justifyContent='space-between' alignItems='center' key={phrase} style={{ color: colorForPhrases }}>
+            <Stack flexDirection='row' justifyContent='space-between' alignItems='center' key={phrase}>
               <Box sx={{ my: 2, ...customStyles.phrase, color: colorForPhrases }}>
                 {phrase}
               </Box>
               <div style={{ height: 'fit-content' }}>
                 <Button variant='contained' color='relaxed' size='small' endIcon={<DeleteIcon />}
-                  style={{ color: colorForPhrases }} onClick={() => deletePhraseHandler(phrase)}
+                  style={{ color: colorForPhrases }} 
+                  onClick={() => deletePhraseHandler(phrase)}
                 >
                   Eliminar
                 </Button>

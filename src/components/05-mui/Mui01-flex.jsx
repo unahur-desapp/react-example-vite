@@ -36,7 +36,7 @@ function ListOfPhrases() {
     await fetchPhrases();
   }, []);
 
-  return (
+  return renderedPhrases ? 
     <Stack flexDirection='column' sx={{ mx: '15%' }}>
       <Stack flexDirection='row' justifyContent='flex-end' sx={{ mr: 2 }}>
         <button style={{ color: '#d32f2f', borderColor: '#d32f2f', backgroundColor: '#ffcdd2' }} onClick={() => addFixedPhrase()}>
@@ -52,8 +52,7 @@ function ListOfPhrases() {
             No mostrar
           </button>
         </Stack>
-        {!renderedPhrases && <div>Cargando frases ...</div>}
-        {renderedPhrases && colorForPhrases &&
+        {colorForPhrases &&
           renderedPhrases.map(phrase => (
             <Stack flexDirection='row' justifyContent='space-between' alignItems='center' key={phrase} style={{ color: colorForPhrases }}>
               <Box sx={{ my: 2, ...customStyles.phrase, color: colorForPhrases }}>
@@ -67,12 +66,12 @@ function ListOfPhrases() {
             </Stack>
           ))
         }
-        {renderedPhrases && !colorForPhrases &&
+        {!colorForPhrases &&
           <div>Elegir un color para ver las frases ...</div>
         }
       </Stack>
     </Stack>
-  );
+  : <div>Cargando frases ...</div>;
 }
 
 export function Phrases() {
