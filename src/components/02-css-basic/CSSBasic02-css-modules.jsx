@@ -24,7 +24,7 @@ const STAR_WARS_DATA = {
 
 
 export function FilmsAndPhrases() {
-  console.log(localClasses);
+  console.log(JSON.stringify(localClasses));
   console.log(localClasses2);
   return <>
     <Title />
@@ -37,7 +37,7 @@ export function FilmsAndPhrases() {
 function Title() {
   return (
     <div>
-      <h1 className={localClasses2.phraseAuthorBlock}>Frases de pelis/series - CSS - versión 2</h1>
+      <h1 id={localClasses.titulo} className={localClasses2.phraseAuthorBlock}>Frases de pelis/series - CSS - versión 2</h1>
     </div>
   );
 }

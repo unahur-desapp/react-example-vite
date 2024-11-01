@@ -28,3 +28,8 @@
   max-width: 100%;
   max-height: 300px;
 }
+
+#titulo {
+  font-weight: bold;
+  text-decoration: underline;
+}

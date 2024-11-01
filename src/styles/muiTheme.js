@@ -8,6 +8,10 @@ export const customMuiTheme = createTheme({
         },
         subtitle1: {
             fontSize: '1.3rem'
+        },
+        code: {
+            fontFamily: 'consolas',
+            fontSize: '0.8rem',
         }
     },
     palette: {

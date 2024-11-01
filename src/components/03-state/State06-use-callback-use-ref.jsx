@@ -17,18 +17,18 @@ function Title() {
 
 function ListOfPhrases() {
   const [renderedPhrases, setRenderedPhrases] = useState(ALL_PHRASES);
-  const indexAddedPhrase = useRef(0);
   const [colorForPhrases, setColorForPhrases] = useState('black');
-
+  const indexAddedPhrase = useRef(0);
+  
   const deletePhrase = useCallback((phrase) => {
     setRenderedPhrases(current => current.filter(storedPhrase => storedPhrase !== phrase));
   }, []);
 
   const addFixedPhrase = useCallback(() => {
-    indexAddedPhrase.current = indexAddedPhrase.current + 1;
-    setRenderedPhrases(current => [`Frase agregada ${indexAddedPhrase.current}`, ...current]);
+    indexAddedPhrase.current++;
+    setRenderedPhrases(currentPhrases => [`Frase agregada ${indexAddedPhrase.current}`, ...currentPhrases]);
   }, []);
-    
+
   return (
     <div style={customStyles.allPhrasesFrame}>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginRight: '1rem' }}>

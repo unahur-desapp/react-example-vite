@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { customStyles } from "../../styles/phrases-custom-styles";
 import { addPhrase, deletePhrase, getAllPhrases } from "../../services/phrases";
 import { Box, Stack } from "@mui/material";
+
+const borderPhraseList = {
+  borderStyle: 'solid',
+  borderColor: 'lightseagreen',
+  borderWidth: '3px',
+  borderRadius: '1rem',
+};
 
 function Title() {
   return <div>
@@ -43,7 +49,7 @@ function ListOfPhrases() {
           Agregar
         </button>
       </Stack>
-      <Stack flexDirection='column' sx={{ px: 6, py: 2, mt: 4, mb: 6 }} style={customStyles.phraseList}>
+      <Stack flexDirection='column' sx={{ px: 6, py: 2, mt: 4, mb: 6, ...borderPhraseList }}>
         <Stack flexDirection='row' justifyContent='space-between' sx={{ my: 3, mx: 4 }}>
           {["crimson", "slateblue", "mediumseagreen", "black"].map(color => (
             <button key={color} onClick={() => setColorForPhrases(color)} style={{ color }}>{color}</button>
@@ -55,7 +61,7 @@ function ListOfPhrases() {
         {colorForPhrases &&
           renderedPhrases.map(phrase => (
             <Stack flexDirection='row' justifyContent='space-between' alignItems='center' key={phrase} style={{ color: colorForPhrases }}>
-              <Box sx={{ my: 2, ...customStyles.phrase, color: colorForPhrases }}>
+              <Box sx={{ my: 2, fontSize: '16px', color: colorForPhrases }}>
                 {phrase}
               </Box>
               <div style={{ height: 'fit-content' }}>

@@ -69,7 +69,7 @@ function ListOfPhrases() {
         { isVeryNarrowViewpoint && 
           <Stack flexDirection='column' alignItems='center' sx={{ mb: 1 }}>
             {["crimson", "slateblue", "mediumseagreen", "black"].map(color => (
-              <Box sx={{my: .5}}>
+              <Box key={color} sx={{my: .5}}>
                 <button key={color} onClick={() => setColorForPhrases(color)} style={{ color, width: '10rem' }}>
                   {color}
                 </button>
